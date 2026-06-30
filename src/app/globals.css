@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ─── Keyframes ─────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-16px) rotate(1.5deg); }
+  66%       { transform: translateY(-7px) rotate(-1deg); }
+}
+
+@keyframes orb-pulse {
+  0%, 100% { opacity: 0.12; transform: scale(1); }
+  50%       { opacity: 0.28; transform: scale(1.15); }
+}
+
+@keyframes gradient-text {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Utility classes ───────────────────────────────── */
+.animate-float         { animation: float 8s ease-in-out infinite; }
+.animate-orb-pulse     { animation: orb-pulse 5s ease-in-out infinite; }
+.animate-blink         { animation: blink 1s step-end infinite; }
+.animate-slide-up      { animation: slide-up 0.8s ease forwards; }
+.animate-fade-in       { animation: fade-in 1s ease forwards; }
+.animate-gradient-text {
+  background-size: 300% 300%;
+  animation: gradient-text 6s ease infinite;
+}
+
+/* ─── Gradient text ─────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #f97316, #fbbf24, #ef4444, #f97316);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-text 6s ease infinite;
+}
+
+/* ─── Glass card ────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(249, 115, 22, 0.15);
+}
+.glass-hover:hover {
+  background: rgba(249, 115, 22, 0.05);
+  border-color: rgba(249, 115, 22, 0.4);
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.12);
+}
+
+/* ─── CTA button ────────────────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, #f97316, #ef4444);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.btn-primary:hover {
+  box-shadow: 0 0 28px rgba(249, 115, 22, 0.55);
+  transform: translateY(-2px);
+}
+
+/* ─── Timeline gradient line ────────────────────────── */
+.timeline-line {
+  background: linear-gradient(to bottom, #f97316, #ef4444, #fbbf24);
+}
+
+/* ─── Shimmer overlay ───────────────────────────────── */
+.shimmer-overlay {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(249, 115, 22, 0.08) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3.5s infinite;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #070300; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#f97316, #ef4444);
+  border-radius: 3px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #080400;
+  color: #fff9f0;
+  overflow-x: hidden;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+}

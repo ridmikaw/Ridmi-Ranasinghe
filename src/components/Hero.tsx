@@ -1,0 +1,198 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import "remixicon/fonts/remixicon.css";
+
+const roles = ["Software Engineer", "Full-Stack Developer", "Problem Solver"];
+
+export default function Hero() {
+  const [currentRole, setCurrentRole] = useState(0);
+  const [displayed, setDisplayed] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const role = roles[currentRole];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting) {
+      if (displayed.length < role.length) {
+        timeout = setTimeout(
+          () => setDisplayed(role.slice(0, displayed.length + 1)),
+          80,
+        );
+      } else {
+        timeout = setTimeout(() => setIsDeleting(true), 2200);
+      }
+    } else {
+      if (displayed.length > 0) {
+        timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 45);
+      } else {
+        setIsDeleting(false);
+        setCurrentRole((prev) => (prev + 1) % roles.length);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayed, isDeleting, currentRole]);
+
+  return (
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* ── Background ───────────────────────────────────────────── */}
+      <div className="absolute inset-0 bg-[#080400]">
+        {/* Animated glowing orbs */}
+        <div
+          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-orange-600/10 blur-[140px] animate-orb-pulse"
+          style={{ animationDelay: "0s" }}
+        />
+        <div
+          className="absolute bottom-1/3 right-1/4 w-[450px] h-[450px] rounded-full bg-red-600/10 blur-[120px] animate-orb-pulse"
+          style={{ animationDelay: "2s" }}
+        />
+        <div
+          className="absolute top-2/3 left-1/2 w-[350px] h-[350px] rounded-full bg-amber-500/8 blur-[100px] animate-orb-pulse"
+          style={{ animationDelay: "4s" }}
+        />
+
+        {/* Subtle grid */}
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(249,115,22,0.6) 1px, transparent 1px), linear-gradient(90deg, rgba(249,115,22,0.6) 1px, transparent 1px)",
+            backgroundSize: "70px 70px",
+          }}
+        />
+
+        {/* Bottom fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#080400] to-transparent" />
+      </div>
+
+      {/* ── Content ──────────────────────────────────────────────── */}
+      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        {/* Badge */}
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-orange-500/30 bg-orange-500/10 text-orange-400 text-sm font-medium mb-10 animate-fade-in">
+          <i className="ri-stars-line text-sm" />
+          Available for new opportunities
+          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+        </div>
+
+        {/* Name */}
+        <h1
+          className="animate-slide-up"
+          style={{ animationDelay: "0.1s", opacity: 0 }}
+        >
+          <span className="block text-white/40 text-base md:text-lg font-semibold tracking-[0.35em] uppercase mb-3">
+            Hello, I&rsquo;m
+          </span>
+          <span className="block text-6xl md:text-8xl lg:text-9xl font-black gradient-text leading-none">
+            Ridmi
+          </span>
+          <span className="block text-5xl md:text-7xl lg:text-8xl font-black text-white leading-none mt-1">
+            Ranasinghe
+          </span>
+        </h1>
+
+        <div
+          className="mt-6 flex justify-center animate-slide-up"
+          style={{ animationDelay: "0.2s", opacity: 0 }}
+        >
+          <a
+            href="https://macrolabs.lk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 rounded-2xl border border-orange-500/25 bg-black/35 px-4 py-3 backdrop-blur-md hover:border-orange-400/60 hover:bg-orange-500/10 hover:shadow-[0_0_24px_rgba(249,115,22,0.2)] transition-all duration-300"
+            aria-label="Associate Software Engineer at Derana Macrolabs"
+          >
+            <div className="text-left leading-tight">
+              <p className="text-[10px] uppercase tracking-[0.22em] text-orange-300/70">
+                Current Role
+              </p>
+              <p className="text-sm md:text-base font-semibold text-white/95">
+                Associate Software Engineer
+              </p>
+              <p className="text-xs md:text-sm text-orange-300/85">
+                Derana Macrolabs
+              </p>
+            </div>
+
+            <i className="ri-external-link-line text-orange-400/80 group-hover:text-orange-300 transition-colors" />
+          </a>
+        </div>
+        {/* Typing subtitle */}
+        <div
+          className="mt-8 h-10 flex items-center justify-center text-xl md:text-2xl font-semibold text-orange-300/80 animate-slide-up"
+          style={{ animationDelay: "0.3s", opacity: 0 }}
+        >
+          <span className="mr-1">{displayed}</span>
+          <span className="animate-blink text-orange-500 font-light">|</span>
+        </div>
+
+        {/* CTA buttons */}
+        <div
+          className="mt-10 flex flex-col sm:flex-row gap-4 justify-center animate-slide-up"
+          style={{ animationDelay: "0.7s", opacity: 0 }}
+        >
+          <a
+            href="#projects"
+            className="btn-primary px-9 py-4 rounded-2xl font-bold text-white text-base shadow-lg"
+          >
+            View My Work
+          </a>
+          <a
+            href="#contact"
+            className="px-9 py-4 rounded-2xl font-bold text-white/70 text-base border border-orange-500/25 hover:border-orange-500/60 hover:bg-orange-500/10 hover:text-white transition-all duration-300"
+          >
+            Let&rsquo;s Talk
+          </a>
+        </div>
+
+        {/* Social links */}
+        <div
+          className="mt-10 flex items-center justify-center gap-4 animate-slide-up"
+          style={{ animationDelay: "0.9s", opacity: 0 }}
+        >
+          {[
+            {
+              remix: "ri-github-fill",
+              href: "https://github.com/ridmikaw",
+              label: "GitHub",
+            },
+            {
+              remix: "ri-linkedin-box-fill",
+              href: "https://www.linkedin.com/in/ridmi-ranasinghe-4920a8202/",
+              label: "LinkedIn",
+            },
+            {
+              remix: "ri-mail-line",
+              href: "mailto:ridmikranasinghe@gmail.com",
+              label: "Email",
+            },
+          ].map(({ remix, href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center text-white/45 hover:text-orange-400 hover:border-orange-500/50 hover:bg-orange-500/10 hover:shadow-[0_0_18px_rgba(249,115,22,0.2)] transition-all duration-300"
+            >
+              <i className={`${remix} text-lg`} />
+            </a>
+          ))}
+        </div>
+
+        {/* Scroll cue */}
+        <div
+          className="mt-20 flex flex-col items-center gap-2 text-white/25 text-xs animate-float"
+          style={{ animationDelay: "0s" }}
+        >
+          <span className="tracking-widest uppercase text-[10px]">Scroll</span>
+          <i className="ri-arrow-down-line text-sm animate-bounce" />
+        </div>
+      </div>
+    </section>
+  );
+}
