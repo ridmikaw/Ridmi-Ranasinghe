@@ -108,17 +108,22 @@ export default function About() {
               Passionate Full-Stack Engineer
             </h3>
             <p className="text-white/55 leading-relaxed mb-4">
-              I&apos;m a versatile software engineer with expertise spanning the
-              full technology stack. From building robust backend systems with
-              Java and Spring Boot to crafting seamless frontend experiences
-              with React and Next.js — I love bringing ideas to life through
-              code.
+              I&apos;m a Sri Lankan software engineer currently working as an
+              Associate Software Engineer at Derana MacroLabs. Previously, I
+              worked as a Fullstack Software Engineer Intern at Derana MacroLabs
+              and as a Fullstack Software Engineer Intern at GeoEdge (Pvt) Ltd,
+              contributing to full-stack, AI-powered, and cloud-native product
+              engineering.and focused on full-stack product engineering,
+              AI-powered platforms, and cloud-native systems. I&apos;ve
+              contributed across fast-paced product teams, delivering scalable
+              solutions in telecom, SaaS, media-tech, and enterprise domains.
             </p>
             <p className="text-white/55 leading-relaxed mb-8">
-              With hands-on experience across multiple languages and frameworks,
-              I thrive on solving complex problems and continuously learning new
-              technologies. My approach combines technical precision with a
-              creative mindset to deliver high-quality, scalable solutions.
+              My stack includes Node.js, TypeScript, React, Next.js,
+              Java/Spring, Python, Go, Docker, Kubernetes, AWS/GCP, Kafka, and
+              modern AI tooling. I&apos;m passionate about solving real-world
+              problems, building high-impact digital experiences, and growing
+              through continuous learning and technical leadership.
             </p>
 
             {/* Tags */}
