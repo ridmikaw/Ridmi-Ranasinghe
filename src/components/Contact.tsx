@@ -8,14 +8,14 @@ const contactInfo = [
   {
     remix: "ri-mail-line",
     label: "Email",
-    value: "ridmi@example.com",
-    href: "mailto:ridmi@example.com",
+    value: "ridmikranasinghe@gmail.com",
+    href: "mailto:ridmikranasinghe@gmail.com",
   },
   {
     remix: "ri-phone-line",
     label: "Phone",
-    value: "+94 XX XXX XXXX",
-    href: "tel:+94XXXXXXXXX",
+    value: "+94 76 068 0335",
+    href: "tel:+94760680335",
   },
   {
     remix: "ri-map-pin-line",
