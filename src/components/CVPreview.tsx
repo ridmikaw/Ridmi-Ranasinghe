@@ -19,7 +19,7 @@ export default function CVPreview() {
       >
         <button
           onClick={() => setShowModal(true)}
-          className="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-bold text-white border border-orange-500/25 hover:border-orange-500/60 hover:bg-orange-500/10 transition-all duration-300"
+          className="inline-flex items-center gap-2 px-7 py-3 rounded-xl font-bold text-[#4b3a29] bg-white border border-pink-500/25 hover:border-pink-500/60 hover:text-pink-600 hover:shadow-[0_8px_22px_rgba(236,72,153,0.15)] transition-all duration-300"
         >
           <i className="ri-file-pdf-line" />
           View CV

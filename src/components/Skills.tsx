@@ -11,7 +11,7 @@ const skillCategories: Record<
   { gradient: string; items: { name: string; level: number }[] }
 > = {
   Languages: {
-    gradient: "from-orange-500 to-red-500",
+    gradient: "from-orange-500 via-pink-500 to-rose-500",
     items: [
       { name: "Java", level: 90 },
       { name: "JavaScript", level: 88 },
@@ -26,7 +26,7 @@ const skillCategories: Record<
     ],
   },
   "Frameworks & Libraries": {
-    gradient: "from-amber-500 to-orange-500",
+    gradient: "from-pink-500 via-fuchsia-500 to-violet-500",
     items: [
       { name: "React", level: 90 },
       { name: "Next.js", level: 88 },
@@ -41,7 +41,7 @@ const skillCategories: Record<
     ],
   },
   Databases: {
-    gradient: "from-red-500 to-amber-500",
+    gradient: "from-violet-500 via-indigo-500 to-blue-500",
     items: [
       { name: "MySQL", level: 85 },
       { name: "MongoDB", level: 82 },
@@ -49,7 +49,7 @@ const skillCategories: Record<
     ],
   },
   Tools: {
-    gradient: "from-yellow-500 to-orange-500",
+    gradient: "from-amber-500 via-orange-500 to-pink-500",
     items: [
       { name: "Git", level: 92 },
       { name: "Docker", level: 72 },
@@ -69,9 +69,10 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-28 relative bg-[#080400] overflow-hidden"
+      className="py-28 relative bg-[#fffaf4] overflow-hidden"
     >
-      <div className="absolute left-0 bottom-0 w-[450px] h-[450px] rounded-full bg-orange-600/6 blur-[120px] pointer-events-none" />
+      <div className="absolute left-0 bottom-0 w-[450px] h-[450px] rounded-full bg-orange-400/12 blur-[120px] pointer-events-none" />
+      <div className="absolute right-0 top-10 w-[400px] h-[400px] rounded-full bg-pink-400/10 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -82,13 +83,13 @@ export default function Skills() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <p className="text-orange-500 text-xs font-bold tracking-[0.35em] uppercase mb-3">
+          <p className="text-pink-600 text-xs font-bold tracking-[0.35em] uppercase mb-3">
             What I know
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white">
+          <h2 className="text-4xl md:text-5xl font-black text-[#1f1508]">
             My <span className="gradient-text">Skills</span>
           </h2>
-          <div className="mt-4 w-14 h-1 rounded-full bg-gradient-to-r from-orange-500 to-amber-400" />
+          <div className="mt-4 w-16 h-1.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500" />
         </motion.div>
 
         {/* Category tabs */}
@@ -97,10 +98,10 @@ export default function Skills() {
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
+              className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 flex items-center gap-2 ${
                 active === cat
-                  ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-[0_0_22px_rgba(249,115,22,0.35)]"
-                  : "text-white/50 border border-white/10 hover:border-orange-500/40 hover:text-white"
+                  ? "bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500 text-white shadow-[0_8px_22px_rgba(236,72,153,0.4)]"
+                  : "text-[#4b3a29] bg-white border border-pink-500/15 hover:border-pink-500/50 hover:text-pink-600 hover:shadow-[0_6px_18px_rgba(236,72,153,0.12)]"
               }`}
             >
               <i
@@ -127,10 +128,10 @@ export default function Skills() {
                 initial={{ opacity: 0, scale: 0.85 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: i * 0.04 }}
-                className="glass glass-hover p-5 rounded-2xl group cursor-default transition-all duration-300"
+                className="glass glass-hover gradient-ring p-5 rounded-2xl group cursor-default"
               >
                 {/* Progress bar */}
-                <div className="w-full bg-white/5 rounded-full h-1.5 mb-3 overflow-hidden">
+                <div className="w-full bg-black/5 rounded-full h-1.5 mb-3 overflow-hidden">
                   <motion.div
                     className={`h-1.5 rounded-full bg-gradient-to-r ${skillCategories[active].gradient}`}
                     initial={{ width: 0 }}
@@ -143,10 +144,10 @@ export default function Skills() {
                   />
                 </div>
 
-                <p className="text-white/80 text-sm font-semibold group-hover:text-orange-400 transition-colors leading-tight">
+                <p className="text-[#1f1508] text-sm font-bold group-hover:text-pink-600 transition-colors leading-tight">
                   {skill.name}
                 </p>
-                <p className="text-white/25 text-xs mt-1">{skill.level}%</p>
+                <p className="text-[#a3927e] text-xs mt-1 font-semibold">{skill.level}%</p>
               </motion.div>
             ))}
           </motion.div>

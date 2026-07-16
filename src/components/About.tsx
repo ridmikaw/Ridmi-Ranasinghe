@@ -20,13 +20,22 @@ const tags = [
   "Agile",
 ];
 
+const tagColors = [
+  "text-orange-600 border-orange-500/30 bg-orange-500/10",
+  "text-pink-600 border-pink-500/30 bg-pink-500/10",
+  "text-violet-600 border-violet-500/30 bg-violet-500/10",
+  "text-rose-600 border-rose-500/30 bg-rose-500/10",
+  "text-amber-600 border-amber-500/30 bg-amber-500/10",
+];
+
 export default function About() {
   const [showCVModal, setShowCVModal] = useState(false);
 
   return (
-    <section id="about" className="py-28 relative overflow-hidden bg-[#0a0600]">
-      {/* Accent orb */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-amber-600/6 blur-[120px] pointer-events-none" />
+    <section id="about" className="py-28 relative overflow-hidden bg-[#fffaf4]">
+      {/* Accent orbs */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-pink-400/12 blur-[120px] pointer-events-none" />
+      <div className="absolute left-0 top-10 w-[380px] h-[380px] rounded-full bg-violet-400/10 blur-[110px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Section header */}
@@ -37,13 +46,13 @@ export default function About() {
           transition={{ duration: 0.7 }}
           className="mb-20"
         >
-          <p className="text-orange-500 text-xs font-bold tracking-[0.35em] uppercase mb-3">
+          <p className="text-pink-600 text-xs font-bold tracking-[0.35em] uppercase mb-3">
             Get to know me
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white">
+          <h2 className="text-4xl md:text-5xl font-black text-[#1f1508]">
             About <span className="gradient-text">Ridmi</span>
           </h2>
-          <div className="mt-4 w-14 h-1 rounded-full bg-gradient-to-r from-orange-500 to-amber-400" />
+          <div className="mt-4 w-16 h-1.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500" />
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -57,8 +66,8 @@ export default function About() {
           >
             <div className="relative">
               {/* Decorative rotating rings */}
-              <div className="absolute -inset-6 rounded-3xl border border-orange-500/15 rotate-3 pointer-events-none" />
-              <div className="absolute -inset-6 rounded-3xl border border-amber-400/10 -rotate-2 pointer-events-none" />
+              <div className="absolute -inset-6 rounded-3xl border-2 border-pink-500/20 rotate-3 pointer-events-none" />
+              <div className="absolute -inset-6 rounded-3xl border-2 border-violet-400/15 -rotate-2 pointer-events-none" />
 
               {/* Card */}
               <div className="relative w-72 h-80 rounded-3xl glass overflow-hidden flex flex-col items-center justify-center">
@@ -66,7 +75,7 @@ export default function About() {
                 <div className="absolute inset-0 shimmer-overlay pointer-events-none" />
 
                 {/* Avatar circle */}
-                <div className="relative w-24 h-24 rounded-full ring-2 ring-orange-400/50 shadow-[0_0_40px_rgba(249,115,22,0.45)] z-10 overflow-hidden">
+                <div className="relative w-24 h-24 rounded-full ring-4 ring-pink-400/40 shadow-[0_0_40px_rgba(236,72,153,0.4)] z-10 overflow-hidden">
                   <Image
                     src="/profile.png"
                     alt="Ridmi Ranasinghe profile photo"
@@ -77,22 +86,22 @@ export default function About() {
                   />
                 </div>
 
-                <p className="mt-6 text-white/80 font-bold text-lg z-10">
+                <p className="mt-6 text-[#1f1508] font-bold text-lg z-10">
                   Ridmi Ranasinghe
                 </p>
-                <p className="text-orange-400 text-sm z-10">
+                <p className="text-pink-600 text-sm font-semibold z-10">
                   Associate Software Engineer
                 </p>
 
                 <div className="mt-4 flex items-center gap-2 z-10">
-                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-xs text-white/35">
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-xs text-[#7c6a56]">
                     Open to opportunities
                   </span>
                 </div>
 
                 {/* Bottom gradient bar */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-amber-400 to-red-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500" />
               </div>
             </div>
           </motion.div>
@@ -104,10 +113,10 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
           >
-            <h3 className="text-2xl md:text-3xl font-black text-white mb-5">
+            <h3 className="text-2xl md:text-3xl font-black text-[#1f1508] mb-5">
               Passionate Full-Stack Engineer
             </h3>
-            <p className="text-white/55 leading-relaxed mb-4">
+            <p className="text-[#4b3a29] leading-relaxed mb-4">
               I&apos;m a Sri Lankan software engineer currently working as an
               Associate Software Engineer at Derana MacroLabs. Previously, I
               worked as a Fullstack Software Engineer Intern at Derana MacroLabs
@@ -118,7 +127,7 @@ export default function About() {
               contributed across fast-paced product teams, delivering scalable
               solutions in telecom, SaaS, media-tech, and enterprise domains.
             </p>
-            <p className="text-white/55 leading-relaxed mb-8">
+            <p className="text-[#4b3a29] leading-relaxed mb-8">
               My stack includes Node.js, TypeScript, React, Next.js,
               Java/Spring, Python, Go, Docker, Kubernetes, AWS/GCP, Kafka, and
               modern AI tooling. I&apos;m passionate about solving real-world
@@ -128,10 +137,10 @@ export default function About() {
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2 mb-8">
-              {tags.map((tag) => (
+              {tags.map((tag, i) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-full text-xs font-semibold text-orange-400 border border-orange-500/30 bg-orange-500/10"
+                  className={`px-3 py-1 rounded-full text-xs font-bold border transition-transform hover:-translate-y-0.5 ${tagColors[i % tagColors.length]}`}
                 >
                   {tag}
                 </span>
@@ -141,7 +150,7 @@ export default function About() {
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => setShowCVModal(true)}
-                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl font-bold text-white border border-orange-500/25 hover:border-orange-500/60 hover:bg-orange-500/10 transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl font-bold text-[#4b3a29] bg-white border border-pink-500/25 hover:border-pink-500/60 hover:text-pink-600 hover:shadow-[0_8px_22px_rgba(236,72,153,0.15)] transition-all duration-300"
               >
                 <i className="ri-file-pdf-line" />
                 View CV
@@ -169,13 +178,13 @@ export default function About() {
           {stats.map(({ remix, value, label }) => (
             <div
               key={label}
-              className="glass glass-hover p-7 rounded-2xl text-center transition-all duration-300 group"
+              className="glass glass-hover gradient-ring p-7 rounded-2xl text-center group"
             >
               <i
-                className={`${remix} text-2xl text-orange-500 group-hover:text-orange-400 transition-colors mx-auto mb-3 block`}
+                className={`${remix} text-2xl text-pink-500 group-hover:text-violet-500 transition-colors mx-auto mb-3 block`}
               />
               <div className="text-3xl font-black gradient-text">{value}</div>
-              <div className="text-white/45 text-sm mt-1">{label}</div>
+              <div className="text-[#7c6a56] text-sm mt-1">{label}</div>
             </div>
           ))}
         </motion.div>

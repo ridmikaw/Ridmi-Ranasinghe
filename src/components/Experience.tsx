@@ -49,9 +49,9 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-28 relative bg-[#080400] overflow-hidden"
+      className="py-28 relative bg-[#fdf7f0] overflow-hidden"
     >
-      <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[700px] h-[300px] rounded-full bg-amber-600/5 blur-[110px] pointer-events-none" />
+      <div className="absolute left-1/2 -translate-x-1/2 top-0 w-[700px] h-[300px] rounded-full bg-violet-400/12 blur-[110px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
@@ -62,13 +62,13 @@ export default function Experience() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <p className="text-orange-500 text-xs font-bold tracking-[0.35em] uppercase mb-3">
+          <p className="text-pink-600 text-xs font-bold tracking-[0.35em] uppercase mb-3">
             Where I&apos;ve worked
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white">
+          <h2 className="text-4xl md:text-5xl font-black text-[#1f1508]">
             Work <span className="gradient-text">Experience</span>
           </h2>
-          <div className="mt-4 w-14 h-1 rounded-full bg-gradient-to-r from-orange-500 to-amber-400" />
+          <div className="mt-4 w-16 h-1.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500" />
         </motion.div>
 
         {/* Timeline */}
@@ -87,34 +87,34 @@ export default function Experience() {
                 className="relative md:pl-20"
               >
                 {/* Timeline node */}
-                <div className="absolute left-4 top-7 hidden md:flex w-5 h-5 rounded-full items-center justify-center bg-gradient-to-br from-orange-500 to-amber-400 border-[3px] border-[#080400] shadow-[0_0_16px_rgba(249,115,22,0.55)] -translate-x-1/2" />
+                <div className="absolute left-4 top-7 hidden md:flex w-5 h-5 rounded-full items-center justify-center bg-gradient-to-br from-orange-500 via-pink-500 to-violet-500 border-[3px] border-white shadow-[0_0_16px_rgba(236,72,153,0.55)] -translate-x-1/2" />
 
                 {/* Card */}
-                <div className="glass glass-hover rounded-2xl p-7 transition-all duration-300">
+                <div className="glass glass-hover gradient-ring rounded-2xl p-7">
                   <div className="flex flex-wrap items-start justify-between gap-4 mb-5">
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <i className="ri-briefcase-fill text-lg text-orange-400" />
-                        <h3 className="text-white font-black text-xl">
+                        <i className="ri-briefcase-fill text-lg text-pink-500" />
+                        <h3 className="text-[#1f1508] font-black text-xl">
                           {exp.role}
                         </h3>
                       </div>
-                      <p className="text-orange-400 font-semibold flex items-center gap-1.5">
+                      <p className="text-pink-600 font-semibold flex items-center gap-1.5">
                         <i className="ri-building-line text-sm" />
                         {exp.company}
                       </p>
                     </div>
 
                     <div className="flex flex-col items-end gap-1.5 text-sm shrink-0">
-                      <div className="flex items-center gap-1.5 text-white/45">
+                      <div className="flex items-center gap-1.5 text-[#7c6a56]">
                         <i className="ri-calendar-line" />
                         {exp.period}
                       </div>
-                      <div className="flex items-center gap-1.5 text-white/45">
+                      <div className="flex items-center gap-1.5 text-[#7c6a56]">
                         <i className="ri-map-pin-line" />
                         {exp.location}
                       </div>
-                      <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-orange-500/15 text-orange-400 border border-orange-500/25">
+                      <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-violet-500/12 text-violet-600 border border-violet-500/25">
                         {exp.type}
                       </span>
                     </div>
@@ -124,9 +124,9 @@ export default function Experience() {
                     {exp.description.map((item, j) => (
                       <li
                         key={j}
-                        className="flex items-start gap-2.5 text-white/55 text-sm"
+                        className="flex items-start gap-2.5 text-[#4b3a29] text-sm"
                       >
-                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-br from-orange-500 to-amber-400 shrink-0" />
+                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-br from-pink-500 to-violet-500 shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -136,7 +136,7 @@ export default function Experience() {
                     {exp.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-2.5 py-0.5 rounded-full text-xs font-semibold text-orange-300 bg-orange-500/10 border border-orange-500/20"
+                        className="px-2.5 py-0.5 rounded-full text-xs font-semibold text-orange-600 bg-orange-500/10 border border-orange-500/20"
                       >
                         {t}
                       </span>

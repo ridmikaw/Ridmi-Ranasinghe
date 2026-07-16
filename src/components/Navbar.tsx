@@ -43,7 +43,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "py-3 bg-black/80 backdrop-blur-xl border-b border-orange-500/20 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+          ? "py-3 bg-white/70 backdrop-blur-xl border-b border-pink-500/15 shadow-[0_8px_30px_rgba(236,72,153,0.12)]"
           : "py-5"
       }`}
     >
@@ -51,7 +51,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 group">
           <span className="text-2xl font-black gradient-text">RR</span>
-          <span className="text-white/30 font-light text-sm hidden sm:block">
+          <span className="text-[#7c6a56] font-light text-sm hidden sm:block">
             Portfolio
           </span>
         </a>
@@ -62,15 +62,15 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-all duration-300 relative group ${
+              className={`text-sm font-semibold transition-all duration-300 relative group ${
                 active === link.href
-                  ? "text-orange-400"
-                  : "text-white/60 hover:text-white"
+                  ? "text-pink-600"
+                  : "text-[#4b3a29] hover:text-pink-600"
               }`}
             >
               {link.label}
               <span
-                className={`absolute -bottom-1 left-0 h-px bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-300 ${
+                className={`absolute -bottom-1 left-0 h-0.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500 transition-all duration-300 ${
                   active === link.href ? "w-full" : "w-0 group-hover:w-full"
                 }`}
               />
@@ -86,7 +86,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-white/70 hover:text-orange-400 transition-colors"
+          className="md:hidden text-[#4b3a29] hover:text-pink-600 transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -98,13 +98,13 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden mt-2 mx-4 rounded-2xl bg-black/90 backdrop-blur-xl border border-orange-500/20 p-4 shadow-2xl">
+        <div className="md:hidden mt-2 mx-4 rounded-2xl bg-white/90 backdrop-blur-xl border border-pink-500/15 p-4 shadow-[0_12px_40px_rgba(236,72,153,0.15)]">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="block py-3 px-4 text-white/70 hover:text-orange-400 hover:bg-orange-500/10 rounded-xl transition-all text-sm font-medium"
+              className="block py-3 px-4 text-[#4b3a29] hover:text-pink-600 hover:bg-pink-500/10 rounded-xl transition-all text-sm font-semibold"
             >
               {link.label}
             </a>

@@ -18,7 +18,7 @@ const projects = [
       "Risk Prediction Models",
     ],
     accentFrom: "#f97316",
-    accentTo: "#ef4444",
+    accentTo: "#ec4899",
     github: "#",
     demo: "#",
   },
@@ -35,8 +35,8 @@ const projects = [
       "REST APIs",
       "CI/CD",
     ],
-    accentFrom: "#fbbf24",
-    accentTo: "#f97316",
+    accentFrom: "#ec4899",
+    accentTo: "#8b5cf6",
     github: "#",
     demo: "#",
   },
@@ -45,8 +45,8 @@ const projects = [
     description:
       "Web-based employee management platform for organizing staff information and streamlining core HR administration tasks.",
     tech: ["HTML", "CSS", "Bootstrap", "Java"],
-    accentFrom: "#ef4444",
-    accentTo: "#f97316",
+    accentFrom: "#8b5cf6",
+    accentTo: "#6366f1",
     github: "#",
     demo: "#",
   },
@@ -55,8 +55,8 @@ const projects = [
     description:
       "Marketplace system that enables customers and suppliers to trade products, with inventory and online sales management capabilities.",
     tech: ["MongoDB", "Express", "React", "Node.js", "Bootstrap", "Postman"],
-    accentFrom: "#f97316",
-    accentTo: "#fbbf24",
+    accentFrom: "#06b6d4",
+    accentTo: "#3b82f6",
     github: "#",
     demo: "#",
   },
@@ -65,8 +65,8 @@ const projects = [
     description:
       "Mobile and web solution for waste collection and disposal with location-aware reporting and service coordination.",
     tech: ["Flutter", "MongoDB", "Express", "React", "Node.js"],
-    accentFrom: "#eab308",
-    accentTo: "#f97316",
+    accentFrom: "#10b981",
+    accentTo: "#14b8a6",
     github: "#",
     demo: "#",
   },
@@ -75,8 +75,8 @@ const projects = [
     description:
       "Cross-platform civic safety app that supports emergency alerts and real-time notifications on Android and iOS.",
     tech: ["Flutter", "Firebase", "Android", "iOS"],
-    accentFrom: "#ef4444",
-    accentTo: "#fbbf24",
+    accentFrom: "#f43f5e",
+    accentTo: "#f59e0b",
     github: "#",
     demo: "#",
   },
@@ -86,9 +86,10 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-28 relative bg-[#0a0600] overflow-hidden"
+      className="py-28 relative bg-[#fdf7f0] overflow-hidden"
     >
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-red-600/6 blur-[130px] pointer-events-none" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full bg-violet-400/10 blur-[130px] pointer-events-none" />
+      <div className="absolute left-0 top-20 w-[400px] h-[400px] rounded-full bg-pink-400/10 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
@@ -99,13 +100,13 @@ export default function Projects() {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <p className="text-orange-500 text-xs font-bold tracking-[0.35em] uppercase mb-3">
+          <p className="text-pink-600 text-xs font-bold tracking-[0.35em] uppercase mb-3">
             What I&apos;ve built
           </p>
-          <h2 className="text-4xl md:text-5xl font-black text-white">
+          <h2 className="text-4xl md:text-5xl font-black text-[#1f1508]">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <div className="mt-4 w-14 h-1 rounded-full bg-gradient-to-r from-orange-500 to-amber-400" />
+          <div className="mt-4 w-16 h-1.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500" />
         </motion.div>
 
         {/* Grid */}
@@ -117,7 +118,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.08 }}
-              className="glass rounded-2xl overflow-hidden group transition-all duration-500 hover:shadow-[0_0_40px_rgba(249,115,22,0.12)] hover:border-orange-500/40"
+              className="glass glass-hover rounded-2xl overflow-hidden group"
             >
               {/* Top accent bar */}
               <div
@@ -130,20 +131,19 @@ export default function Projects() {
               <div className="p-6">
                 {/* Icon */}
                 <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5"
+                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 shadow-sm"
                   style={{
-                    background: `linear-gradient(135deg, ${project.accentFrom}22, ${project.accentTo}22)`,
-                    border: `1px solid ${project.accentFrom}33`,
+                    background: `linear-gradient(135deg, ${project.accentFrom}, ${project.accentTo})`,
                   }}
                 >
-                  <i className="ri-code-box-line text-lg text-orange-400" />
+                  <i className="ri-code-box-line text-lg text-white" />
                 </div>
 
-                <h3 className="text-white font-bold text-lg mb-2 group-hover:text-orange-400 transition-colors duration-300">
+                <h3 className="text-[#1f1508] font-bold text-lg mb-2 group-hover:text-pink-600 transition-colors duration-300">
                   {project.title}
                 </h3>
 
-                <p className="text-white/50 text-sm leading-relaxed mb-5">
+                <p className="text-[#4b3a29] text-sm leading-relaxed mb-5">
                   {project.description}
                 </p>
 
@@ -152,7 +152,7 @@ export default function Projects() {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/5 text-white/55 border border-white/8"
+                      className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-black/[0.04] text-[#4b3a29] border border-black/5"
                     >
                       {t}
                     </span>
@@ -163,14 +163,14 @@ export default function Projects() {
                 <div className="flex items-center gap-5">
                   <a
                     href={project.github}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-white/50 hover:text-orange-400 transition-colors"
+                    className="flex items-center gap-1.5 text-xs font-bold text-[#7c6a56] hover:text-pink-600 transition-colors"
                   >
                     <i className="ri-github-line text-sm" />
                     Source Code
                   </a>
                   <a
                     href={project.demo}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-white/50 hover:text-orange-400 transition-colors"
+                    className="flex items-center gap-1.5 text-xs font-bold text-[#7c6a56] hover:text-pink-600 transition-colors"
                   >
                     <i className="ri-external-link-line text-sm" />
                     Live Demo
