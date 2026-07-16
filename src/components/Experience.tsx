@@ -8,14 +8,14 @@ const experiences = [
     role: "Associate Software Engineer",
     company: "Derana MacroLabs",
     location: "Colombo, Sri Lanka",
-    period: "January 2025 – Present",
+    period: "January 2026 – Present",
     type: "Full-time",
     description: [
       "Contributing to OnePlace, a centralized BMS and ERP platform with scalable, high-quality features.",
       "Building modern frontend experiences with seamless API integration.",
       "Collaborating in agile teams to deliver maintainable and reliable production features.",
     ],
-    tech: ["React", "Next.js", "TypeScript", "Node.js", "REST APIs"],
+    tech: ["JavaScript", "Next.js", "TypeScript", "NestJS", "REST APIs"],
   },
   {
     role: "Intern Software Engineer",
@@ -24,7 +24,7 @@ const experiences = [
     period: "July 2025 – December 2025",
     type: "Internship",
     description: [
-      "Contributed to Ada Derana Sinhala, Tamil, and English platforms with improved UI and frontend performance.",
+      "Contributed to Ada Derana Sinhala, Tamil, and English platforms.",
       "Delivered enhancements for the eTunes platform to improve user experience and responsiveness.",
       "Worked on frontend architecture and component quality for high-traffic media products.",
     ],
