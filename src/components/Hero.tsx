@@ -72,13 +72,6 @@ export default function Hero() {
 
       {/* ── Content ──────────────────────────────────────────────── */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-pink-500/30 bg-white/70 backdrop-blur-md text-pink-600 text-sm font-semibold mb-10 shadow-[0_4px_18px_rgba(236,72,153,0.15)] animate-fade-in">
-          <i className="ri-stars-line text-sm" />
-          Available for new opportunities
-          <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-        </div>
-
         {/* Name */}
         <h1
           className="animate-slide-up"

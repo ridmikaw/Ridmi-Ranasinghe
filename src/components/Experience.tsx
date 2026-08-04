@@ -5,43 +5,59 @@ import "remixicon/fonts/remixicon.css";
 
 const experiences = [
   {
-    role: "Associate Software Engineer",
+    role: "Associate Fullstack Software Engineer",
     company: "Derana MacroLabs",
     location: "Colombo, Sri Lanka",
     period: "January 2026 – Present",
     type: "Full-time",
-    description: [
-      "Contributing to OnePlace, a centralized BMS and ERP platform with scalable, high-quality features.",
-      "Building modern frontend experiences with seamless API integration.",
-      "Collaborating in agile teams to deliver maintainable and reliable production features.",
+    description:
+      "Contribute to Ada Derana (Sinhala, Tamil, English), a major news platform, developing scalable, high-quality features. Build and maintain features for OnePlace, a centralized BMS and ERP platform, with a focus on modern frontend architecture and seamless API integration.",
+    tech: [
+      "Go",
+      "NestJS",
+      "TypeScript",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "GCP",
+      "AWS",
+      "Docker",
+      "Kubernetes",
     ],
-    tech: ["JavaScript", "Next.js", "TypeScript", "NestJS", "REST APIs"],
   },
   {
-    role: "Intern Software Engineer",
+    role: "Fullstack Software Engineer",
     company: "Derana MacroLabs",
     location: "Colombo, Sri Lanka",
     period: "July 2025 – December 2025",
     type: "Internship",
-    description: [
-      "Contributed to Ada Derana Sinhala, Tamil, and English platforms.",
-      "Delivered enhancements for the eTunes platform to improve user experience and responsiveness.",
-      "Worked on frontend architecture and component quality for high-traffic media products.",
-    ],
-    tech: ["React", "Next.js", "JavaScript", "TypeScript", "Tailwind CSS"],
+    description:
+      "Developed frontend and backend features across eTunes, Pulse, and Mogo Academy platforms. Delivered scalable features with emphasis on modern frontend development and API integration.",
+    tech: ["NestJS", "Java", "TypeScript", "JavaScript", "React", "Next.js"],
   },
   {
-    role: "Intern Software Engineer",
+    role: "Fullstack Software Engineer",
     company: "GeoEdge (Pvt) Ltd",
     location: "Colombo, Sri Lanka",
     period: "September 2024 – March 2025",
     type: "Internship",
-    description: [
-      "Delivered fullstack development for key projects including the Pasanka ERP System and Rathnaweera AutoCare (RAC).",
-      "Performed manual and automation testing for Nimesh Motor Work's Vehicle Repair Management System.",
-      "Supported feature delivery across both frontend and backend modules in production workflows.",
+    description:
+      "Contributed to an ERP system built with Spring Boot, Angular, and JHipster, focused mainly on frontend development. Performed manual and automated testing using Selenium and Playwright.",
+    tech: [
+      "Java",
+      "Kotlin",
+      "Spring Boot",
+      "React",
+      "Redux",
+      "Apache Kafka",
+      "AWS",
+      "GCP",
+      "Docker",
+      "Kubernetes",
+      "JHipster",
+      "Selenium",
+      "Playwright",
     ],
-    tech: ["React", "Node.js", "Express.js", "MySQL", "Selenium"],
   },
 ];
 
@@ -120,17 +136,9 @@ export default function Experience() {
                     </div>
                   </div>
 
-                  <ul className="space-y-2 mb-5">
-                    {exp.description.map((item, j) => (
-                      <li
-                        key={j}
-                        className="flex items-start gap-2.5 text-[#4b3a29] text-sm"
-                      >
-                        <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gradient-to-br from-pink-500 to-violet-500 shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
+                  <p className="text-[#4b3a29] text-sm leading-relaxed mb-5">
+                    {exp.description}
+                  </p>
 
                   <div className="flex flex-wrap gap-2">
                     {exp.tech.map((t) => (

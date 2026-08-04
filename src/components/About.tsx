@@ -8,7 +8,7 @@ import "remixicon/fonts/remixicon.css";
 const stats = [
   { remix: "ri-briefcase-line", value: "1+", label: "Years Experience" },
   { remix: "ri-code-line", value: "20+", label: "Projects Built" },
-  { remix: "ri-globe-line", value: "10+", label: "Technologies" },
+  { remix: "ri-globe-line", value: "20+", label: "Technologies" },
   { remix: "ri-cup-line", value: "∞", label: "Cups of Coffee" },
 ];
 

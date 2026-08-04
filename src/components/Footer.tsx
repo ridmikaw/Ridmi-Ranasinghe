@@ -24,9 +24,6 @@ export default function Footer() {
           {/* Logo */}
           <div className="text-2xl font-black">
             <span className="gradient-text">RR</span>
-            <span className="text-[#7c6a56] font-light text-sm ml-2">
-              Portfolio
-            </span>
           </div>
 
           {/* Nav */}
