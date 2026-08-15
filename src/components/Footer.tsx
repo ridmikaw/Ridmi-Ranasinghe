@@ -65,7 +65,7 @@ export default function Footer() {
               className="ri-heart-fill text-pink-500"
               style={{ fontSize: "11px" }}
             />
-            &amp; Next.js
+            &amp;
           </p>
         </div>
       </div>
