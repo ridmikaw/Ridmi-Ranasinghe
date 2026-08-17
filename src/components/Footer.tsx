@@ -60,12 +60,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-[#7c6a56] text-sm flex items-center gap-1.5">
-            © {new Date().getFullYear()} Ridmi Ranasinghe. Built with
-            <i
-              className="ri-heart-fill text-pink-500"
-              style={{ fontSize: "11px" }}
-            />
-            &amp;
+            © {new Date().getFullYear()} Ridmi Ranasinghe.All rights reserved.
           </p>
         </div>
       </div>
