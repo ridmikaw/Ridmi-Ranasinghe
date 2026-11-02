@@ -2,8 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "remixicon/fonts/remixicon.css";
+
+// Must match a file in /public exactly (case-sensitive)
+const CV_PATH = "/RidmiRanasinghe.pdf";
+const CV_DOWNLOAD_NAME = "Ridmi-Ranasinghe-CV.pdf";
 
 const stats = [
   { remix: "ri-briefcase-line", value: "1+", label: "Years Experience" },
@@ -30,6 +34,23 @@ const tagColors = [
 
 export default function About() {
   const [showCVModal, setShowCVModal] = useState(false);
+
+  // Close on Escape + lock page scroll while the modal is open
+  useEffect(() => {
+    if (!showCVModal) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setShowCVModal(false);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [showCVModal]);
 
   return (
     <section id="about" className="py-28 relative overflow-hidden bg-[#fffaf4]">
@@ -122,10 +143,9 @@ export default function About() {
               worked as a Fullstack Software Engineer Intern at Derana MacroLabs
               and as a Fullstack Software Engineer Intern at GeoEdge (Pvt) Ltd,
               contributing to full-stack, AI-powered, and cloud-native product
-              engineering.and focused on full-stack product engineering,
-              AI-powered platforms, and cloud-native systems. I&apos;ve
-              contributed across fast-paced product teams, delivering scalable
-              solutions in telecom, SaaS, media-tech, and enterprise domains.
+              engineering. I&apos;ve contributed across fast-paced product
+              teams, delivering scalable solutions in telecom, SaaS, media-tech,
+              and enterprise domains.
             </p>
             <p className="text-[#4b3a29] leading-relaxed mb-8">
               My stack includes Node.js, TypeScript, React, Next.js,
@@ -149,6 +169,7 @@ export default function About() {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <button
+                type="button"
                 onClick={() => setShowCVModal(true)}
                 className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl font-bold text-[#4b3a29] bg-white border border-pink-500/25 hover:border-pink-500/60 hover:text-pink-600 hover:shadow-[0_8px_22px_rgba(236,72,153,0.15)] transition-all duration-300"
               >
@@ -156,8 +177,8 @@ export default function About() {
                 View CV
               </button>
               <a
-                href="/Ridmi-Ranasinghe.pdf"
-                download="RidmiRanasinghe.pdf"
+                href={CV_PATH}
+                download={CV_DOWNLOAD_NAME}
                 className="inline-flex items-center justify-center gap-2 btn-primary px-7 py-3 rounded-xl font-bold text-white"
               >
                 <i className="ri-download-line" />
@@ -188,64 +209,67 @@ export default function About() {
             </div>
           ))}
         </motion.div>
-
-        {/* CV Preview Modal */}
-        {showCVModal && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
-            >
-              {/* Header */}
-              <div className="flex items-center justify-between p-5 border-b border-gray-200 bg-gray-50">
-                <h3 className="text-lg font-bold text-gray-800">
-                  Curriculum Vitae - Ridmi Ranasinghe
-                </h3>
-                <div className="flex items-center gap-3">
-                  <a
-                    href="/Ridmi-Ranasinghe.pdf"
-                    download="RidmiRanasinghe.pdf"
-                    className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors"
-                  >
-                    <i className="ri-download-line" />
-                    Download
-                  </a>
-                  <button
-                    onClick={() => setShowCVModal(false)}
-                    className="p-2 hover:bg-gray-200 rounded-lg transition-colors"
-                    aria-label="Close"
-                  >
-                    <i className="ri-close-line text-2xl text-gray-700" />
-                  </button>
-                </div>
-              </div>
-
-              {/* PDF Viewer */}
-              <div className="flex-1 overflow-auto bg-gray-100">
-                <iframe
-                  src="/Ridmi-Ranasinghe.pdf#toolbar=0"
-                  className="w-full h-full"
-                  title="CV Preview"
-                />
-              </div>
-
-              {/* Footer */}
-              <div className="px-5 py-3 border-t border-gray-200 bg-gray-50 text-sm text-gray-600 text-center">
-                Use your browser's PDF controls to navigate. Press Escape or
-                click the X to close.
-              </div>
-            </motion.div>
-
-            {/* Backdrop click to close */}
-            <div
-              onClick={() => setShowCVModal(false)}
-              className="fixed inset-0 z-[99]"
-            />
-          </div>
-        )}
       </div>
+
+      {/* CV Preview Modal
+          The outer div is the backdrop (click to close).
+          The card stops propagation so clicks inside never close it. */}
+      {showCVModal && (
+        <div
+          onClick={() => setShowCVModal(false)}
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Curriculum Vitae preview"
+        >
+          <motion.div
+            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            className="relative w-full max-w-4xl h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between p-5 border-b border-gray-200 bg-gray-50">
+              <h3 className="text-lg font-bold text-gray-800">
+                Curriculum Vitae - Ridmi Ranasinghe
+              </h3>
+              <div className="flex items-center gap-3">
+                <a
+                  href={CV_PATH}
+                  download={CV_DOWNLOAD_NAME}
+                  className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors"
+                >
+                  <i className="ri-download-line" />
+                  Download
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setShowCVModal(false)}
+                  className="p-2 hover:bg-gray-200 rounded-lg transition-colors"
+                  aria-label="Close"
+                >
+                  <i className="ri-close-line text-2xl text-gray-700" />
+                </button>
+              </div>
+            </div>
+
+            {/* PDF Viewer */}
+            <div className="flex-1 min-h-0 bg-gray-100">
+              <iframe
+                src={`${CV_PATH}#toolbar=0`}
+                className="w-full h-full border-0"
+                title="CV Preview"
+              />
+            </div>
+
+            {/* Footer */}
+            <div className="px-5 py-3 border-t border-gray-200 bg-gray-50 text-sm text-gray-600 text-center">
+              Press Escape or click outside to close.
+            </div>
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 }
