@@ -44,7 +44,7 @@ export default function CVPreview() {
               <div className="flex items-center gap-3">
                 <a
                   href="/Ridmi-Ranasinghe.pdf"
-                  download="Ridmi-Ranasinghe-CV.pdf"
+                  download="RidmiRanasinghe.pdf"
                   className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors"
                 >
                   <i className="ri-download-line" />

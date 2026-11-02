@@ -157,7 +157,7 @@ export default function About() {
               </button>
               <a
                 href="/Ridmi-Ranasinghe.pdf"
-                download="Ridmi-Ranasinghe-CV.pdf"
+                download="RidmiRanasinghe.pdf"
                 className="inline-flex items-center justify-center gap-2 btn-primary px-7 py-3 rounded-xl font-bold text-white"
               >
                 <i className="ri-download-line" />
@@ -206,7 +206,7 @@ export default function About() {
                 <div className="flex items-center gap-3">
                   <a
                     href="/Ridmi-Ranasinghe.pdf"
-                    download="Ridmi-Ranasinghe-CV.pdf"
+                    download="RidmiRanasinghe.pdf"
                     className="flex items-center gap-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-colors"
                   >
                     <i className="ri-download-line" />
